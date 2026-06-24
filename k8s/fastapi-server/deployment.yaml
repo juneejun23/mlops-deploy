@@ -18,6 +18,7 @@ spec:
       containers:
       - name: fastapi-server
         image: 100.112.196.74:30002/mlops-core/test-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
         resources:
