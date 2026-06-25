@@ -14,6 +14,7 @@ spec:
         app: triton-server
     spec:
       runtimeClassName: nvidia
+      terminationGracePeriodSeconds: 90
       containers:
       - name: triton-server
         image: nvcr.io/nvidia/tritonserver:26.05-py3
@@ -40,3 +41,15 @@ spec:
             memory: "4Gi"
             cpu: "2000m"
             nvidia.com/gpu: 1
+      - name: triton-sidecar
+        image: 100.112.196.74:30002/mlops-core/triton-sidecar:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      imagePullSecrets:
+      - name: harbor-registry-secret
