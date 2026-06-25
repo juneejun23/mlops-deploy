@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka-publisher
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:juneejun23/mlops-deploy.git
+    targetRevision: main
+    path: k8s/kafka-publisher
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mlops-backend
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

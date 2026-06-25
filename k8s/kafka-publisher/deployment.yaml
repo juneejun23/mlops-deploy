@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kafka-publisher
+  namespace: mlops-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-publisher
+  template:
+    metadata:
+      labels:
+        app: kafka-publisher
+    spec:
+      imagePullSecrets:
+      - name: harbor-registry-secret
+      containers:
+      - name: kafka-publisher
+        image: 100.112.196.74:30002/mlops-core/kafka-publisher:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
