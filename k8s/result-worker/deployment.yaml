@@ -17,7 +17,7 @@ spec:
       - name: harbor-registry-secret
       containers:
       - name: result-worker
-        image: 100.112.196.74:30002/mlops-core/result-worker:latest
+        image: 100.112.196.74:30002/mlops-core/result-worker:89ab587
         imagePullPolicy: Always
         resources:
           requests:
