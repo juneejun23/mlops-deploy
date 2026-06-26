@@ -42,7 +42,7 @@ spec:
             cpu: "2000m"
             nvidia.com/gpu: 1
       - name: triton-sidecar
-        image: 100.112.196.74:30002/mlops-core/triton-sidecar:latest
+        image: 100.112.196.74:30002/mlops-core/triton-sidecar:18b13ee
         imagePullPolicy: Always
         resources:
           requests:
