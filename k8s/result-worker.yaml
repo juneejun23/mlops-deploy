@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-worker
+  namespace: mlops-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result-worker
+  template:
+    metadata:
+      labels:
+        app: result-worker
+    spec:
+      imagePullSecrets:
+      - name: harbor-registry-secret
+      containers:
+      - name: result-worker
+        image: 100.112.196.74:30002/mlops-core/result-worker:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
