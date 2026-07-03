@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xception-train
+  namespace: mlops-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xception-train
+  template:
+    metadata:
+      labels:
+        app: xception-train
+    spec:
+      imagePullSecrets:
+      - name: harbor-registry-secret
+      containers:
+      - name: xception-train
+        image: 100.112.196.74:30002/mlops-core/xception-train:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "2Gi"
+          limits:
+            cpu: "4"
+            memory: "16Gi"

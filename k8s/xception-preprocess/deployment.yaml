@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xception-preprocess
+  namespace: mlops-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xception-preprocess
+  template:
+    metadata:
+      labels:
+        app: xception-preprocess
+    spec:
+      imagePullSecrets:
+      - name: harbor-registry-secret
+      containers:
+      - name: xception-preprocess
+        image: 100.112.196.74:30002/mlops-core/xception-preprocess:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+          limits:
+            cpu: "2"
+            memory: "4Gi"
