@@ -17,7 +17,7 @@ spec:
       - name: harbor-registry-secret
       containers:
       - name: kafka-publisher
-        image: 100.112.196.74:30002/mlops-core/kafka-publisher:99cfd77
+        image: 100.112.196.74:30002/mlops-core/kafka-publisher:b37bde3
         imagePullPolicy: Always
         resources:
           requests:
