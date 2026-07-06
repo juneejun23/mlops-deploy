@@ -17,7 +17,7 @@ spec:
       - name: harbor-registry-secret
       containers:
       - name: fastapi-server
-        image: 100.112.196.74:30002/mlops-core/fastapi-server:0f9c237
+        image: 100.112.196.74:30002/mlops-core/fastapi-server:7c204a9
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
