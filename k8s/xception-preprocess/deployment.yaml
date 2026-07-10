@@ -18,7 +18,7 @@ spec:
       - name: harbor-registry-secret
       containers:
       - name: xception-preprocess
-        image: 100.112.196.74:30002/mlops-core/xception-preprocess:a3e7d29
+        image: 100.112.196.74:30002/mlops-core/xception-preprocess:b39f91f
         imagePullPolicy: Always
         resources:
           requests:
