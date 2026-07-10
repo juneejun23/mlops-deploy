@@ -1,0 +1,17 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: xception-preprocess-scaledobject
+  namespace: mlops-backend
+spec:
+  scaleTargetRef:
+    name: xception-preprocess
+  minReplicaCount: 0
+  maxReplicaCount: 1
+  triggers:
+  - type: kafka
+    metadata:
+      bootstrapServers: my-kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+      consumerGroup: preprocess-consumer-group
+      topic: preprocess-topic
+      lagThreshold: "1"

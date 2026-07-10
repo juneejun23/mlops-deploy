@@ -1,0 +1,17 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: xception-train-scaledobject
+  namespace: mlops-backend
+spec:
+  scaleTargetRef:
+    name: xception-train
+  minReplicaCount: 0
+  maxReplicaCount: 1
+  triggers:
+  - type: kafka
+    metadata:
+      bootstrapServers: my-kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092
+      consumerGroup: train-consumer-group
+      topic: train-topic
+      lagThreshold: "1"
