@@ -21,6 +21,6 @@ spec:
   ignoreDifferences:
   - group: apps
     kind: Deployment
-    name: xception-preprocess
+    name: xception-train
     jsonPointers:
     - /spec/replicas
