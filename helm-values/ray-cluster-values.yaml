@@ -28,7 +28,7 @@ worker:
 
 additionalWorkerGroups:
   gpu-worker:
-    replicas: 1
+    replicas: 0
     resources:
       requests:
         cpu: "500m"
