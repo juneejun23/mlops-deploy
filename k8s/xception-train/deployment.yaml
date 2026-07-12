@@ -17,7 +17,7 @@ spec:
       - name: harbor-registry-secret
       containers:
       - name: xception-train
-        image: 100.112.196.74:30002/mlops-core/xception-train:d3923ac
+        image: 100.112.196.74:30002/mlops-core/xception-train:4a83cf7
         imagePullPolicy: Always
         resources:
           requests:
